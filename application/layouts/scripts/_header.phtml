@@ -1,1 +1,67 @@
-<b>this is the header</b>
+<!-- /header -->
+    <div id="header">
+        <div class="hleft"></div>
+        <!-- hmid -->
+        <div class="hmid">            
+            <a href="/">
+              <p class="logo"></p>
+            </a>
+            
+            <div class="right">
+                <div class="list">
+                    <ul>
+                        
+                        <?php if($session->email != null){ ?>                          
+                            <li style="margin-left: 0px;"><a href="/messagecenter" title="GoalFace Message Center">Messages</a></li>
+                            <li style="margin-left: 0px;">&nbsp;<?php echo ($session->newMessages > 0? '<span class="redmessage">New!</span>':''); ?></li>
+                            <li>
+                              
+                               <a href="/sign-out">Sign Out</a>
+                            
+                            	<!-- FB connect button BUG 07-30-2012 -->
+                            	<!--<a href="<?php 
+								//$result = $session->fbuser['email'];
+								//$logout = $session->logoutUrl;
+								//if($result==null){
+								//	echo Zend_Registry::get("contextPath") . "/sign-out";
+								//}else{
+								//	echo $logout;
+								//}
+								?>">Sign Out</a>-->
+								
+							</li>
+                            <li>|</li>
+                            <li><a href="<?php echo $urlGen->getEditProfilePage($session->screenName,True,"settings");?>" title="GoalFace Account & Settings">Account &amp; Settings</a></li>
+                            <li>|</li>
+                        <?php } else { ?>
+                           <div class="homecallout" style="font-weight:bold;color:#296183;position:absolute;top:10px;right:220px;">Fun, free and 100% football. Follow your favorite teams and players. <a style="color:#F95200;" href="/user/register">Sign up now.</a></div>
+
+                            
+                            <li><a href="/sign-in" title="GoalFace Sign In">Sign In</a></li>
+                        <?php } ?>
+
+                            <li><a href="/options/help" title="GoalFace Help">Help/FAQ</a></li>
+                     
+                            <!-- <li><a href="<?php //echo $urlGen->getFeedbackPageUrl(true); ?>" title="GoalFace Feedback">Feedback</a></li> -->
+                    </ul>
+                    
+                    
+                    
+                    <form method="get" action="<?php echo $urlGen->getSearchMainUrl(true); ?>">
+                        <span class="pro">
+                            <input id="search-query" type="text" value="Search GoalFace..." name="q" />
+                        </span>
+                        <span class="pro1">
+                            <input id="searchButtonId" type="button" disabled value="Search" name=""/>
+                        </span>
+                     </form>
+                </div>
+
+                
+            </div>
+        </div>
+        <!-- /hmid -->
+        <div class="hright"></div>
+    </div>
+    		
+<!-- /header -->
